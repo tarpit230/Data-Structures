@@ -84,6 +84,28 @@ void insertAtPosition(Node* &head, Node* &tail, int position, int val) {
     
 }
 
+void deleteNode(Node* &head, int position) {
+    if(position == 1) {
+        Node* temp = head;
+        head = head -> next;
+        temp -> next = NULL;
+        delete temp;
+    }
+    else {
+        Node* curr = head;
+        Node* prev = NULL;
+        int cnt = 1;
+        while(cnt < position) {
+            prev = curr;
+            curr = curr -> next;
+            cnt++;
+        }
+        prev -> next = curr -> next;
+        curr -> next = NULL;
+        delete curr;
+    }
+}
+
 int main() {
     int arr[] = {2, 3, 4, 8};
     Node* head = new Node(arr[0]);
@@ -95,6 +117,7 @@ int main() {
         i++;
     }
     insertAtPosition(head, tail, 5, 5);
+    deleteNode(head, 2);
     print(head);
     // cout << lengthofLinkedList(head) << endl;
     // cout << searchElement(head, 6);
