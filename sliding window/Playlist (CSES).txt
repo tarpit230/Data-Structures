@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int longestSequence(vector<int> &nums, int n) {
+        unordered_set<int> st;
+        int left = 0, maxLength = 0;
+
+        for (int right = 0; right < n; right++) {
+            while (st.count(nums[right])) {
+                st.erase(nums[left]);
+                left++;
+            }
+            st.insert(nums[right]);
+            maxLength = max(maxLength, right - left + 1);
+        }
+        return maxLength;
+    }
+};
+
+int main() {
+    vector<int> nums = {1, 2, 1, 3, 2, 7, 4, 2};
+    Solution obj;
+    cout << obj.longestSequence(nums, nums.size());
+    return 0;
+}
