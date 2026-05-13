@@ -1,0 +1,28 @@
+Heap is complete binary tree.
+Binary tree is a tree in which all nodes are filled except maybe last node.
+Height of complete binary tree is logarithmic(logn) - Dont know what it means, read more.
+
+Max heap - where parent node >= child node
+Min Heap - where parent node <= child node
+
+Formula to find left and right child of a node given index i:
+Left child: 2i + 1
+Right child: 2i + 2
+Parent Node of i = Math.floor((i - 1)/2)
+
+Inserting Node in Heap:
+
+Lets take Max Heap, insert element at last index of array, if it violates max heap property,
+then replace it with parent Node(index). Do it untill max heap property satisfies or it reaches
+root node.
+Same goes for Min Heap also.
+
+Deleting a Node in Heap:
+
+It usually means deleting root node, for this we replace root node with last node of heap and then 
+remove last node. After this if root element is violating heap property, we perform heapifyDown operation
+on root node. For maxHeap, if root node is less than either child node, we replace it with child node that 
+has larger value. we do this untill it satisfies heap property or it reaches last node.
+
+Since height of the binary tree is logn. The time complexity of both insertion and deletion is O(logn)
+They dont require any extra space so space complexity is O(1)
