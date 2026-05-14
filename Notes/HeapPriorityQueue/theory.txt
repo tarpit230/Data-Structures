@@ -10,14 +10,14 @@ Left child: 2i + 1
 Right child: 2i + 2
 Parent Node of i = Math.floor((i - 1)/2)
 
-Inserting Node in Heap:
+1. Inserting Node in Heap:
 
 Lets take Max Heap, insert element at last index of array, if it violates max heap property,
 then replace it with parent Node(index). Do it untill max heap property satisfies or it reaches
 root node.
 Same goes for Min Heap also.
 
-Deleting a Node in Heap:
+2. Deleting a Node in Heap:
 
 It usually means deleting root node, for this we replace root node with last node of heap and then 
 remove last node. After this if root element is violating heap property, we perform heapifyDown operation
@@ -26,3 +26,16 @@ has larger value. we do this untill it satisfies heap property or it reaches las
 
 Since height of the binary tree is logn. The time complexity of both insertion and deletion is O(logn)
 They dont require any extra space so space complexity is O(1)
+
+3. How do we convert a non heap array to heap?
+
+we take last non-leaf node and perform heapifyDown operation.
+non-leaf node = (n/2) - 1 where n is number of elements. It is because in complete binary tree all nodes from
+n/2 is leaf node, so 1 element before that is last non-leaf node.
+we perform heapifyDown operation from last non leaf node to root node.
+
+Priority Queue
+
+A priority queue is a special type of queue in which each elements has a priority assigned
+when we insert element, they are inserted based on priority,
+when we remove element, one with highest priority will be removed first

@@ -62,4 +62,13 @@ class MaxHeap {
             index = largest;
         }
     }
+
+    // convert non heap array to heap
+    void buildHeap(vector<int> arr){
+        heap = arr;
+        int lastnonleaf = (heap.size()/2) - 1;
+        for(int i=lastnonleaf; i>=0; i--){
+            heapifyDown(i);
+        }
+    }
 };
